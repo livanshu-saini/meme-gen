@@ -1,14 +1,28 @@
 import { useState } from 'react'
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import MemeList from './pages/MemeList'
-import MemeEditor from './pages/MemeEditor'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
+import ProtectedRoute from './components/ProtectedRoute';
+
+import Dashboard from './pages/Dashboard'
+
 function App() {
   return (
-    <div className='bg-slate-700 min-h-screen text-white'>
+    <div className='bg-[#FFF4FF] min-h-screen text-white'>
       <Router>
         <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard/>
+              </ProtectedRoute>
+            }
+         />
           <Route path="/" element={<MemeList/>}></Route>
-          <Route path="/edit/:id" element={<MemeEditor/>}></Route>
         </Routes>
       </Router>
     </div>

@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+
+@layer utilities {
+  .animate-slideX {
+    animation: slideX 50s linear infinite;
+  }
+
+  @keyframes slideX {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
