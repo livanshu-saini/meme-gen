@@ -27,6 +27,11 @@ export default function Meme({email}) {
  
 const memeRef = useRef();
  
+const handleReset=()=>
+{
+  setImg('');
+  setAllTexts([]);
+}
 const downloadImage = () => {
   if (!memeRef.current) return;
  
@@ -129,7 +134,7 @@ const downloadImage = () => {
       <div className="md:w-1/2 w-full flex-row justify-center items-center p-4">
         <div className='flex'>
         <p className='font-mono text-md text-[#8730C9] ml-10'>Just Drag The Caption!!!</p>
-        <button className='text-[#8730C9] ml-5 mb-5 rounded-md border-1 border-gray-500 px-[6px]' onClick={()=>setImg('')}>Reset</button></div>
+        <button className='text-[#8730C9] ml-5 mb-5 rounded-md border-1 border-gray-500 px-[6px]' onClick={handleReset}>Reset</button></div>
         <div ref={memeRef} className="relative bg-white p-4 rounded-xl shadow-md inline-block">
           {img ? (
             <img
